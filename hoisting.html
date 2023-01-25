@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Javascript Concepts</title>
+</head>
+
+<script>
+hoisting();
+
+function hoisting(){
+
+console.log(hoist); //javascript knows it exits, no error but console prints undefined
+
+var what="Variable and function declarations.";
+
+console.log("what is hoisted. " + what);
+
+var hoist = "to lift or raise up";
+
+console.log("Hoist means " + hoist);
+
+//sum();  causes error
+
+var sum = function(){
+console.log(a+b);
+};
+
+//sum();  causes NaN
+
+var a = 10,
+    b = 5;
+
+sum();
+
+//console.log(num)
+//let num = 5;  causes error
+
+var objProto = {
+    greet: function(){
+        console.log(this.greeting + " World!");
+    }
+};
+
+var Greeting = function(term){
+        this.greeting = term;
+};
+
+Greeting.prototype = objProto;
+
+window.obj = new Greeting("Howdy");
+
+console.log(obj.greet());
+
+document.onreadystatechange = function () {
+    if (document.readyState == "complete") {
+    // document is ready. Do your stuff here
+    window.obj = new Greeting("Howdy");
+    console.log("hello")
+  }
+
+
+}
+
+}
+</script>
+
+</html>

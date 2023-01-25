@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Javascript Concepts</title>
+        <script type="text/javascript" src="callback.js"></script>
+        <script type="text/javascript">
+            const pullScores = function(obj, section =1, callback){
+                let scores = {};
+
+                for(let key in obj.scores){
+                    if(key.includes('s' + section)){
+                        let val = obj.scores[key];
+                        if(typeof callback === "function"){
+                            //console.log("callback = function");
+                            val = callback(val);
+                        }
+                        scores[key] = val;
+                    }
+                }
+
+                return scores;
+            };
+
+            let newObj = pullScores(learner1, 1, function(val){
+                if(val === null){
+                    return 0;
+                }else{
+                    let arr = val.split(":");
+                    return arr[0]/arr[1] * 100;
+                }
+            });
+            console.log(newObj);
+            //console.log("hello");
+        </script>
+    </head>
+    <body>
+        My Body
+    </body>
+</html>
