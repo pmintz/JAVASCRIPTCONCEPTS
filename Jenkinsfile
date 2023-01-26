@@ -65,7 +65,7 @@ pipeline {
 			steps { //will only execute if branch name is dev or main
 
 				echo 'testing the application...'
-				echo "deploying ${VERSION}"
+				echo "deploying ${params.VERSION}"
 			}
 		}
 
