@@ -12,12 +12,12 @@ pipeline {
 
 	agent any //where to execute
 	
-	tools {
+	//tools {
 		//maven 
 		//gradle
 		//jdk
 		//ant 'Ant'
-	}
+	//}
 	
 	environment {
 		NEW_VERSION='1.3.0'
@@ -26,7 +26,7 @@ pipeline {
 	
 	parameters {
 		
-		//string(name: 'VERSION', defaultValue: '', description: 'version to deploy on prod')
+		
 		choice(name: 'VERSION', choices: ['1.1.0', '1.2.0'], description: '')
 		booleanParam(name: 'executeTests', defaultValue: true, description: 'version to deploy on prod')
 		
@@ -58,7 +58,7 @@ pipeline {
 			//when {
 				//expression {
 					//env.BRANCH_NAME == 'dev' || BRANCH_NAME == 'main'
-					params.executeTests // == true
+					params.executeTests 
 				//}
 			//}
 	
