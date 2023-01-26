@@ -55,12 +55,12 @@ pipeline {
 
 		stage("test") {
 			
-			//when {
-				//expression {
+			when {
+				expression {
 					//env.BRANCH_NAME == 'dev' || BRANCH_NAME == 'main'
 					params.executeTests 
-				//}
-			//}
+				}
+			}
 	
 			steps { //will only execute if branch name is dev or main
 
